@@ -31,7 +31,7 @@ void inorder(Tree *tree) {
         return;
     }
     inorder(tree->left);
-    printf("%s\n", tree->name);
+    printf("ID: %d | Ten: %s | Tuoi: %d\n", tree->id, tree->name, tree->age);
     inorder(tree->right);
 }
 
