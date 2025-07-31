@@ -22,6 +22,7 @@ Tree *createTree(int id, char name[], int age) {
 
 void addTree(Tree *tree, int id, int age) {
     if (tree == NULL) {
+        
     }
 }
 
