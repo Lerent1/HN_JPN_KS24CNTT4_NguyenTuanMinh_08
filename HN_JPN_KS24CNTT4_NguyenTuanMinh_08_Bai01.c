@@ -129,12 +129,10 @@ int main(void) {
 
     Stack back;
     Stack forword;
-    Queue recent;
     History *history = NULL;
 
     initStack(&back);
     initStack(&forword);
-    initQueue(&recent);
 
     do {
         printf("1. Visit url\n");
@@ -157,7 +155,6 @@ int main(void) {
                 }
                 strcpy(current.url, text);
                 initStack(&forword);
-                enqueue(&recent, current);
                 addHistory(&history, current);
                 printf("Da truy cap vao: %s\n", current.url);
                 break;
