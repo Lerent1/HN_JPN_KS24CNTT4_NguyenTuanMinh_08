@@ -21,7 +21,7 @@ typedef struct History {
     struct History *prev;
 } History;
 
-int initStack(Stack *s) {
+void initStack(Stack *s) {
     s->top = -1;
 }
 
@@ -69,7 +69,7 @@ void initQueue(Queue *q) {
 void enqueue(Queue *q, Operation character) {
     if (q->size == Size) {
         q->front = (q->front + 1) % Size;
-        q->rear--;
+        q->size--;
     }
     q->data[q->rear] = character;
     q->rear = (q->rear + 1) % Size;
@@ -94,12 +94,12 @@ void addHistory(History **head, Operation character) {
     if (*head == NULL) {
         *head = newHistory;
     } else {
-        History *nodeHead = head;
+        History *nodeHead = *head;
         while (nodeHead->next != NULL) {
             nodeHead = nodeHead->next;
-            nodeHead->next = newHistory;
-            newHistory->prev = nodeHead;
         }
+        nodeHead->next = newHistory;
+        newHistory->prev = nodeHead;
     }
 }
 
@@ -119,6 +119,7 @@ void clearHis(History **head) {
         free(node);
         node = temp;
     }
+    *head = NULL;
 }
 
 int main(void) {
