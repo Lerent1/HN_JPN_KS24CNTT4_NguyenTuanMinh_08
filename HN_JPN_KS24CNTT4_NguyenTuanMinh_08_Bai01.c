@@ -193,6 +193,7 @@ int main(void) {
             }
             case 6: {
                 clearHis(&history);
+                printf("Da xoa lich su thanh cong\n");
                 break;
             }
             case 7: {
